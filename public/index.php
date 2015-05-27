@@ -1,9 +1,7 @@
 <?php
 
 /** CONFIGURE */
-define('ROOT',__DIR__.'/../');
-define('APP',__DIR__.'/../app/');
-define('TEMPLATES',APP . 'Resources/Templates/');
+require_once __DIR__ . '/../app/config.dirs.php';
 
 require_once ROOT . 'vendor/autoload.php';
 
@@ -15,7 +13,7 @@ use NewsService\Core\Json;
 
 
 /** INIT */
-DI::init();
+DI::init(['redis','twig','doctrine']);
 $di = DI::getDi();
 
 $di->twig->getLoader()->addPath(TEMPLATES);

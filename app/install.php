@@ -1,7 +1,27 @@
 <?php
 
+require_once __DIR__ . '/../app/config.dirs.php';
 
-return [
+/** CONFIGURE */
+define('ROOT',__DIR__.'/../');
+
+
+require_once ROOT . 'vendor/autoload.php';
+
+
+use NewsService\Core\DI;
+
+/** INIT */
+DI::init(['redis','doctrine']);
+$di = DI::getDi();
+
+$repo = new \NewsService\Repo\News();
+
+$repo->createTable();
+
+
+
+$tokens = [
     '0c1eff79bed398dbff29d65febc0cbbf',
     '1c1a52703fadb064b3744158be7e5557',
     'c6f9cab6a13278ef9e2279110f650b68',
@@ -23,3 +43,10 @@ return [
     '4119d1ccaedc3e411712781b920b9761',
     'a7d3c395e4fc1c2885126d911ffb75f1'
 ];
+
+
+$redis = $di->redis;
+
+
+foreach ( $tokens as $t )
+    $redis->sadd(REDIS_KEY);

@@ -29,10 +29,11 @@ class DI
 
     /**
      * Init container
+     * @param array $list
      */
-    public static function init()
+    public static function init(array $list = [])
     {
-        static::$_di = \ServiceBuilder\ServiceBuilder::load(['redis','twig','doctrine']);
+        static::$_di = \ServiceBuilder\ServiceBuilder::load($list);
     }
 
 }

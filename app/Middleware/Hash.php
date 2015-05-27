@@ -15,7 +15,7 @@ class Hash
 
             $hash  = $route->getParam('hash');
             $redis = DI::getDi()->redis;
-            $key   = 'news-service-keys';
+            $key   = REDIS_KEY;
 
             if ( !$redis->sismember($key, $hash ) )
                 $app->halt(401,Json::error('Authentication required'));
