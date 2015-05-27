@@ -1,0 +1,33 @@
+{
+
+    "name": "xandrew/news-service",
+    "description": "-/-",
+
+    "authors": [
+        {
+            "name": "Guba Andrei",
+            "email": "xg.andrew@gmail.com"
+        }
+    ],
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/xgubax/service-builder.git"
+        }
+    ],
+
+    "minimum-stability": "dev",
+
+    "require": {
+        "xandrew/service-builder": "dev-master",
+        "slim/slim": "dev-master"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "NewsService\\": "app/"
+        }
+    }
+
+}
